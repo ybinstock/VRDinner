@@ -124,6 +124,9 @@ var AppController = function(loadingParams) {
       $(UI_CONSTANTS.confirmJoinButton).onclick = function() {
         this.hide_(confirmJoinDiv);
 
+        var roomSelectionDiv = $(UI_CONSTANTS.roomSelectionDiv);
+        roomSelectionDiv.style.display = "none";
+
         // Record this room in the recently used list.
         var recentlyUsedList = new RoomSelection.RecentlyUsedList();
         recentlyUsedList.pushRecentRoom(this.loadingParams_.roomId);
@@ -188,6 +191,9 @@ AppController.prototype.showRoomSelection_ = function() {
 
   this.show_(roomSelectionDiv);
   this.roomSelection_.onRoomSelected = function(roomName) {
+
+    roomSelectionDiv.style.display = "none";
+
     this.hide_(roomSelectionDiv);
     this.createCall_();
     this.finishCallSetup_(roomName);

@@ -278,9 +278,21 @@ h1 {
 }
 
 div#room-selection {
-  margin: 3em auto 0 auto;
+  display: block;
+  margin: 1.5em auto 0 auto;
   padding: 1em 1.5em 1.3em 1.5em;
-  width: 25em;
+  /*width: 25em;*/
+}
+
+.panel-heading {
+  text-align: center;
+  margin: auto;
+  width: 50%;
+  padding-left: 4em;
+}
+
+.side-by-side {
+  display: inline-block;
 }
 
 p {

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Family Dinner</title>
+  <meta name="description" content="Family Dinner">
+  <script src="https://aframe.io/releases/0.3.0/aframe.js"></script>
+
+</head>
+<body>
+<a-scene>
+
+  <a-assets>
+    <a-asset-item id="table" src="model.dae"></a-asset-item>
+    <a-asset-item id="chair" src="chair.dae"></a-asset-item>
+
+    <a-asset-item id="wine" src="model/wine-bottle/source/WineBottle.dae"></a-asset-item>
+    <a-asset-item id="cheese" src="model/fromages-de-noel/source/Fromages2/Fromages2.obj"></a-asset-item>
+    <a-asset-item id="cheese-mtl" src="model/fromages-de-noel/source/Fromages2/Fromages2.mtl"></a-asset-item>
+
+    <a-mixin id="floor" geometry="primitive: plane; height: 50; width: 20" position="0 -0.5 0" rotation="-90 0 0"
+             material="shader: flat; src: url(floor3.jpg); repeat: 10 10"></a-mixin>
+
+  </a-assets>
+
+  <a-entity collada-model="#wine" position="-.35 1.47 -4.26" scale=".1 .1 .1"></a-entity>
+  <a-obj-model src="#cheese" mtl="#cheese-mtl"  position="-.35 1.5 -4.26" scale=".1 .1 .1" rotation="-90 0 0 "></a-obj-model>
+
+
+  <a-entity collada-model="#table" position="-5 1 2.5" scale=".5 .5 .5"></a-entity>
+
+  <a-entity collada-model="#chair" position="-2 .2 -4" scale=".4 .4 .4" rotation="0 90 0" visible=""></a-entity>
+  <a-entity collada-model="#chair" position="-2 .2 -6" scale=".4 .4 .4" rotation="0 90 0" visible=""></a-entity>
+
+  <a-entity collada-model="#chair" position="2 .2 -4" scale=".4 .4 .4" rotation="0 -90 0" visible=""></a-entity>
+  <a-entity collada-model="#chair" position="2 .2 -6" scale=".4 .4 .4" rotation="0 -90 0" visible=""></a-entity>
+
+  <!--sky and floor-->
+
+  <a-entity mixin="floor"></a-entity>
+  <a-sky src="night-sky1.jpg" radius="5000">
+    <a-root>
+      <a-entity geometry="primitive: sphere;
+                      radius: 5000;
+                      segmentsWidth: 64;
+                      segmentsHeight: 64" material="shader: flat;
+                      src: url();
+                      color: #fff;
+                      fog: false" scale="-1 1 1">
+      </a-entity>
+    </a-root>
+  </a-sky>
+
+
+</a-scene>
+</body>
+</html>
